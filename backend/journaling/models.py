@@ -15,7 +15,6 @@ class Journal(models.Model):
     
 
 class JournalPage(models.Model):
-    journal = models.ForeignKey(Journal, on_delete=models.CASCADE)
     prompt = models.CharField(max_length=120)
     entry = models.TextField(null=True)
     image = models.ImageField(null=True)
