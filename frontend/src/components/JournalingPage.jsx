@@ -1,6 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function JournalingPage() {
+    const nav = useNavigate();
+    const navHome = () => {
+      nav('/');
+    }
+
     const [formData, setFormData] = useState({
         prompt: '',
         entry: '',
@@ -36,17 +42,22 @@ function JournalingPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit} method="post">
-            <input type="text" name="prompt"
-            value={formData.prompt}
-            onChange={handleChange} />
+      <div>
+          <form onSubmit={handleSubmit} method="post">
+              <label htmlFor='prompt'>Prompt: </label>
+              <input type="text" id="prompt" name="prompt"
+              value={formData.prompt}
+              onChange={handleChange} /><br/>
+              
+              <label htmlFor='entry'>Entry: </label>
+              <textarea name="entry" id="entry"
+              value={formData.entry}
+              onChange={handleChange} /><br/>
 
-            <textarea name="entry"
-            value={formData.entry}
-            onChange={handleChange} />
-
-            <button type="submit">Submit</button>
-        </form>
+              <button type="submit">Submit</button>
+          </form>
+          <button onClick={navHome}>Go Back Home</button>
+        </div>
     )
 }
 
