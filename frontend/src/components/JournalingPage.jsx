@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 function JournalingPage() {
+    // For navigation
     const nav = useNavigate();
     const navHome = () => {
       nav('/');
@@ -20,6 +21,7 @@ function JournalingPage() {
       };
 
     // Performs the POST request to Django REST backend
+    const [error, setError] = useState('')
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -37,24 +39,28 @@ function JournalingPage() {
                     throw new Error("Response is not ok!")
                 }
                 return response.json()})
-            .then((data) => console.log(data))
-            .catch((error) => {console.error("Error during fetch: ", error)});
-    }
+                .then((data) => {console.log(data);
+                  setError('Successfully saved journal!')})
+                .catch((error) => {console.error("Error during fetch: ", error); 
+                  setError('Sorry. Server had a bad request!')});
+        }
+
 
     return (
       <div>
-          <form onSubmit={handleSubmit} method="post">
-              <label htmlFor='prompt'>Prompt: </label>
-              <input type="text" id="prompt" name="prompt"
-              value={formData.prompt}
-              onChange={handleChange} /><br/>
-              
-              <label htmlFor='entry'>Entry: </label>
-              <textarea name="entry" id="entry"
-              value={formData.entry}
-              onChange={handleChange} /><br/>
+        {error && <p>{error}</p>}
+        <form onSubmit={handleSubmit} method="post">
+            <label htmlFor='prompt'>Prompt: </label>
+            <input type="text" id="prompt" name="prompt"
+            value={formData.prompt}
+            onChange={handleChange} /><br/>
+            
+            <label htmlFor='entry'>Entry: </label>
+            <textarea name="entry" id="entry"
+            value={formData.entry}
+            onChange={handleChange} /><br/>
 
-              <button type="submit">Submit</button>
+            <button type="submit">Submit</button>
           </form>
           <button onClick={navHome}>Go Back Home</button>
         </div>
