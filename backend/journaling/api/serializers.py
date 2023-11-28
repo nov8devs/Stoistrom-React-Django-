@@ -13,3 +13,9 @@ class JournalPageSerializer(serializers.ModelSerializer):
         model = JournalPage
         fields = ['id', 'prompt', 'entry', 'image']
 
+
+# Handling POST requests from our Frontend
+class CreateJournalPage(serializers.ModelSerializer):
+    class Meta:
+        model = JournalPage
+        fields = ['prompt', 'entry']

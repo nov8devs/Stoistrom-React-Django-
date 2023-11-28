@@ -1,13 +1,69 @@
-import { useHistory } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function JournalingPage() {
+    // For navigation
+    const nav = useNavigate();
+    const navHome = () => {
+      nav('/');
+    }
+
+    const [formData, setFormData] = useState({
+        prompt: '',
+        entry: '',
+      });
+    
+      const handleChange = (e) => {
+        setFormData({
+          ...formData,
+          [e.target.name]: e.target.value,
+        });
+      };
+
+    // Performs the POST request to Django REST backend
+    const [error, setError] = useState('')
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        }
+
+        fetch('http://127.0.0.1:8000/api/create/', requestOptions)
+            .then((response) => {
+                if (response.ok === false) {
+                    throw new Error("Response is not ok!")
+                }
+                return response.json()})
+                .then((data) => {console.log(data);
+                  setError('Successfully saved journal!')})
+                .catch((error) => {console.error("Error during fetch: ", error); 
+                  setError('Sorry. Server had a bad request!')});
+        }
+
 
     return (
-        <form>
-            <input className="Prompt" type="text" name="prompt" />
-            <input type="text" name="entry" />
-            <input type="submit" value="Submit" />
-        </form>
+      <div>
+        {error && <p>{error}</p>}
+        <form onSubmit={handleSubmit} method="post">
+            <label htmlFor='prompt'>Prompt: </label>
+            <input type="text" id="prompt" name="prompt"
+            value={formData.prompt}
+            onChange={handleChange} /><br/>
+            
+            <label htmlFor='entry'>Entry: </label>
+            <textarea name="entry" id="entry"
+            value={formData.entry}
+            onChange={handleChange} /><br/>
+
+            <button type="submit">Submit</button>
+          </form>
+          <button onClick={navHome}>Go Back Home</button>
+        </div>
     )
 }
 
