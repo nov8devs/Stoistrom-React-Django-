@@ -1,14 +1,17 @@
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function JournalingPage() {
+function EmptyPrompt() {
     // For navigation
     const nav = useNavigate();
     const navHome = () => {
       nav('/');
     }
 
+    const { journalId } = useParams();
+
     const [formData, setFormData] = useState({
+        journal_id: journalId,
         prompt: '',
         entry: '',
       });
@@ -40,7 +43,7 @@ function JournalingPage() {
                 }
                 return response.json()})
                 .then((data) => {console.log(data);
-                  setError('Successfully saved journal!')})
+                  setError('Successfully saved page to journal!')})
                 .catch((error) => {console.error("Error during fetch: ", error); 
                   setError('Sorry. Server had a bad request!')});
         }
@@ -67,4 +70,4 @@ function JournalingPage() {
     )
 }
 
-export default JournalingPage;
+export default EmptyPrompt;
