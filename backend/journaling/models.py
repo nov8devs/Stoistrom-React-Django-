@@ -1,14 +1,14 @@
 from django.db import models
 
 # Create your models here.
+class JournalType(models.Model):
+    name = models.CharField(max_length=25, default='Empty Page')
+    description = models.TextField(null=False)
+
 
 class Journal(models.Model):
-    TYPES = [
-        ('0', 'Empty Page'),
-        ('1', "Random Prompt"),
-    ]
-
-    journal_type = models.CharField(max_length=2, choices=TYPES, null=True)
+    name = models.CharField(max_length=50, default='Journal')
+    journal_type = models.ForeignKey(JournalType, on_delete=models.CASCADE, null=True)
     date_started = models.DateTimeField(auto_now_add=True)
     date_last_edited = models.DateTimeField(auto_now=True)
 

@@ -7,12 +7,16 @@ function MyJournals() {
     const navHome = () => {
       nav('/');
     }
+    const navContent = (journal) => {
+      nav(`/${journal}`);
+    }
 
+    // The function below catches the Journaling names
     function getJournalType(code) {
         switch (code) {
-          case '0':
+          case 1:
             return 'Empty Page';
-          case '1':
+          case 2:
             return 'Random Prompt';
           default:
             return 'Unknown Type';
@@ -40,16 +44,41 @@ function MyJournals() {
         fetchJournals();
     }, [])
 
+    // This buttons for the ViewJournalMenu
+    const editJournal = (id) => {}
+    const deleteJournal = (id) => {
+      const [journalId, setJournalId] = useState(0)
+      const fetchJournals = async (n) => {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/list_journals/');
+            if (!response.ok) {
+              throw new Error('Failed to fetch journals');
+            }
+
+            const data = await response.json();
+            setJournalId(data.id);
+        } catch (error) {
+            setError("Error: " + error.message);
+        }
+      }
+
+      fetchJournals(id);
+    }
+
     return (
         <div>
-            <div id="Journals">
+            <div id="viewJournalPreview">
                 <p>Viewing Journals go Here!</p>
                 <ul>
                     {journals.map((journal) => (
                         <li key={journal.id}>
                             <h1>{getJournalType(journal.journal_type)}</h1>
                             <p>Date Created: {dateTimeFormat(journal.date_started)}</p>
-                            <button>View Content</button>
+                            <div id="viewJournalMenu">
+                              <button>Edit</button>
+                              <button>Delete</button>
+                            </div>
+                            <button onClick={navContent}>View Content</button>
                         </li>
                     ))}
                 </ul>

@@ -14,9 +14,10 @@ class JournalPageSerializer(serializers.ModelSerializer):
 
 # Handling POST requests from our Frontend
 class CreateJournal(serializers.ModelSerializer):
+    journal_type_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Journal
-        fields = ['journal_type']
+        fields = ['journal_type_id']
 
 class CreateJournalPage(serializers.ModelSerializer):
     journal_id = serializers.IntegerField(write_only=True)

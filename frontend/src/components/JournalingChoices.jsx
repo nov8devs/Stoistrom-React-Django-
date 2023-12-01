@@ -5,7 +5,7 @@ function JournalingChoices() {
   const nav = useNavigate();
 
   const [error, setError] = useState('')
-  const navigateToJournal = (type) => (e) => {
+  const navigateToJournal = (typeId) => (e) => {
     e.preventDefault();
   
     const requestOptions = {
@@ -14,7 +14,7 @@ function JournalingChoices() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        journal_type: type,
+        journal_type_id: typeId,
       }),
     };
   
@@ -27,7 +27,7 @@ function JournalingChoices() {
       })
       .then((data) => {
         console.log(data);
-        nav(`/journal/${type}/${data.id}`);
+        nav(`/journal/${typeId}/${data.id}`);
       })
       .catch((error) => {
         console.error("Error during fetch: ", error);
@@ -37,8 +37,8 @@ function JournalingChoices() {
 
   return (
     <div>
-      <button onClick={navigateToJournal('0')}>Empty Page</button>
-      <button onClick={navigateToJournal('1')}>Random Prompt</button>
+      <button onClick={navigateToJournal(1)}>Empty Page</button>
+      <button onClick={navigateToJournal(2)}>Random Prompt</button>
     </div>
   );
 }

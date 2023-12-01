@@ -7,6 +7,9 @@ function EmptyPrompt() {
     const navHome = () => {
       nav('/');
     }
+    const navSave = () => {
+      nav('/savejournal')
+    }
 
     const { journalId } = useParams();
 
@@ -38,12 +41,12 @@ function EmptyPrompt() {
 
         fetch('http://127.0.0.1:8000/api/create/', requestOptions)
             .then((response) => {
-                if (response.ok === false) {
+                if (!response.ok) {
                     throw new Error("Response is not ok!")
                 }
                 return response.json()})
                 .then((data) => {console.log(data);
-                  setError('Successfully saved page to journal!')})
+                  navSave();})
                 .catch((error) => {console.error("Error during fetch: ", error); 
                   setError('Sorry. Server had a bad request!')});
         }
@@ -65,7 +68,7 @@ function EmptyPrompt() {
 
             <button type="submit">Submit</button>
           </form>
-          <button onClick={navHome}>Go Back Home</button>
+          <button onClick={navHome}>&lt;</button>
         </div>
     )
 }
