@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'journaling.apps.JournalingConfig',
 ]
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+    'exp://192.168.254.15:8081',]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
