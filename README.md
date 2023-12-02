@@ -5,9 +5,9 @@ To run this project, first do:
 After cloning you have 3 files which is Frontend, Backend and venv.
 You are in this directory "Stoistrom-React-Django-" Open Vscode or any workspace you like. You have 2 terminal open.
 
-# Frontend - React
+# Frontend - ReactNative
 
-    cd frontend
+    cd frontendMobile
     npm i
     npm run dev
 
