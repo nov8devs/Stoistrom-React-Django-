@@ -30,7 +30,7 @@ Before running the project, ensure that you have the following installed:
 
 ## Frontend (ReactNative)
 
-1. Change to the `frontend` directory:
+1. Change to the `frontendMobile` directory:
 
     ```bash
     cd frontendMobile
@@ -55,6 +55,55 @@ Before running the project, ensure that you have the following installed:
 
 1. Change to the `backend` directory:
 
+=======
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/)
+- [Python](https://www.python.org/)
+
+## Getting Started
+
+1. Clone the repository to your local machine using the following command:
+
+    ```bash
+    git clone https://github.com/nov8devs/stoistrom.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd stoistrom
+    ```
+
+3. Inside the project directory, you will find three main folders: `frontend`, `backend`, and `venv`.
+
+## Frontend (React)
+
+1. Change to the `frontend` directory:
+
+    ```bash
+    cd frontend
+    ```
+
+2. Install the required dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Run the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+    This will launch the React application, and you can access it through your preferred web browser.
+
+## Backend (Django)
+
+1. Change to the `backend` directory:
+
+
     ```bash
     cd backend
     ```
@@ -76,3 +125,5 @@ Before running the project, ensure that you have the following installed:
 ## Contribute
 
 to contribute fork this respository, make changes create a pull request. a maintainer will check the pull request by the soonest. refer to [code of conduct](https://github.com/nov8devs/stoistrom/blob/main/CODE_OF_CONDUCT.md) for more details
+
+=======
