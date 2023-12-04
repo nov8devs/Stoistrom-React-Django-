@@ -1,30 +1,78 @@
-To run this project, first do:
+# Stoistrom App
 
-    git clone https://github.com/nov8devs/Stoistrom-React-Django-.git
+## Introduction
 
-After cloning you have 4 files which is Frontend, FrontendMobile, Backend and venv.
-You are in this directory "Stoistrom-React-Django-" Open Vscode or any workspace you like. You have 2 terminal open.
+Welcome to the Stoistrom React Django project! This repository contains the source code for an application built with React for the frontend and Django for the backend. Follow the steps below to set up and run the project on your local machine.
 
-# FrontendMobile - ReactNative
+## Prerequisites
 
+Before running the project, ensure that you have the following installed:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/)
+- [Python](https://www.python.org/)
+
+## Getting Started
+
+1. Clone the repository to your local machine using the following command:
+
+    ```bash
+    git clone https://github.com/nov8devs/stoistrom.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd stoistrom
+    ```
+
+3. Inside the project directory, you will find three main folders: `frontend`, `backend`, and `venv`.
+
+## Frontend (ReactNative)
+
+1. Change to the `frontend` directory:
+
+    ```bash
     cd frontendMobile
+    ```
+
+2. Install the required dependencies:
+
+    ```bash
+    npm install
     npm i -g expo-cli
-    expo start
+    ```
 
-You will start an expo development server, and you'll also see a QR code in the terminal.
-Download Expo Go on your device, and scan the QR code to interact with the dev server.
+3. Run the development server:
 
-# Frontend - React
+    ```bash
+    npm start
+    ```
 
-    cd frontend
-    npm i 
-    npm run dev
+    This will create an Expo server, which you can access through your mobile device by scanning the QR Code.
 
-You will see the work we've done inside the frontend.
-Since this is a mobile app, this frontend will not be used.
+## Backend (Django)
 
-# Backend - Django
+1. Change to the `backend` directory:
 
+    ```bash
     cd backend
+    ```
+
+2. Install the necessary Python packages:
+
+    ```bash
     pip install django-cors-headers pillow
+    ```
+
+3. Start the Django development server:
+
+    ```bash
     python manage.py runserver
+    ```
+
+    The Django backend will be accessible at `http://localhost:8000/`.
+
+## Contribute
+
+to contribute fork this respository, make changes create a pull request. a maintainer will check the pull request by the soonest. refer to [code of conduct](https://github.com/nov8devs/stoistrom/blob/main/CODE_OF_CONDUCT.md) for more details
