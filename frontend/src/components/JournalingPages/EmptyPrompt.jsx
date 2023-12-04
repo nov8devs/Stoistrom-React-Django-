@@ -1,14 +1,20 @@
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function JournalingPage() {
+function EmptyPrompt() {
     // For navigation
     const nav = useNavigate();
     const navHome = () => {
       nav('/');
     }
+    const navSave = () => {
+      nav('/savejournal')
+    }
+
+    const { journalId } = useParams();
 
     const [formData, setFormData] = useState({
+        journal_id: journalId,
         prompt: '',
         entry: '',
       });
@@ -35,12 +41,12 @@ function JournalingPage() {
 
         fetch('http://127.0.0.1:8000/api/create/', requestOptions)
             .then((response) => {
-                if (response.ok === false) {
+                if (!response.ok) {
                     throw new Error("Response is not ok!")
                 }
                 return response.json()})
                 .then((data) => {console.log(data);
-                  setError('Successfully saved journal!')})
+                  navSave();})
                 .catch((error) => {console.error("Error during fetch: ", error); 
                   setError('Sorry. Server had a bad request!')});
         }
@@ -62,9 +68,9 @@ function JournalingPage() {
 
             <button type="submit">Submit</button>
           </form>
-          <button onClick={navHome}>Go Back Home</button>
+          <button onClick={navHome}>&lt;</button>
         </div>
     )
 }
 
-export default JournalingPage;
+export default EmptyPrompt;

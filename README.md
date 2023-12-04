@@ -28,6 +28,55 @@ Before running the project, ensure that you have the following installed:
 
 3. Inside the project directory, you will find three main folders: `frontend`, `backend`, and `venv`.
 
+## Frontend (ReactNative)
+
+1. Change to the `frontendMobile` directory:
+
+    ```bash
+    cd frontendMobile
+    ```
+
+2. Install the required dependencies:
+
+    ```bash
+    npm install
+    npm i -g expo-cli
+    ```
+
+3. Run the development server:
+
+    ```bash
+    npm start
+    ```
+
+    This will create an Expo server, which you can access through your mobile device by scanning the QR Code.
+
+## Backend (Django)
+
+1. Change to the `backend` directory:
+
+=======
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/)
+- [Python](https://www.python.org/)
+
+## Getting Started
+
+1. Clone the repository to your local machine using the following command:
+
+    ```bash
+    git clone https://github.com/nov8devs/stoistrom.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd stoistrom
+    ```
+
+3. Inside the project directory, you will find three main folders: `frontend`, `backend`, and `venv`.
+
 ## Frontend (React)
 
 1. Change to the `frontend` directory:
@@ -54,6 +103,7 @@ Before running the project, ensure that you have the following installed:
 
 1. Change to the `backend` directory:
 
+
     ```bash
     cd backend
     ```
@@ -76,3 +126,4 @@ Before running the project, ensure that you have the following installed:
 
 to contribute fork this respository, make changes create a pull request. a maintainer will check the pull request by the soonest. refer to [code of conduct](https://github.com/nov8devs/stoistrom/blob/main/CODE_OF_CONDUCT.md) for more details
 
+=======
