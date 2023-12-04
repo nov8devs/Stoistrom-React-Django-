@@ -17,13 +17,13 @@ Before running the project, ensure that you have the following installed:
 1. Clone the repository to your local machine using the following command:
 
     ```bash
-    git clone https://github.com/nov8devs/Stoistrom-React-Django-.git
+    git clone https://github.com/nov8devs/stoistrom.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd Stoistrom-React-Django-
+    cd stoistrom
     ```
 
 3. Inside the project directory, you will find three main folders: `frontend`, `backend`, and `venv`.
