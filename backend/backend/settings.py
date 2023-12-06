@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-(k+#pbq0)^4+fi1_b4z6o!c%+psu6ww%om*f=+%3q1&6ix7da+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.254.10',
+]
 
 
 # Application definition
@@ -42,7 +44,12 @@ INSTALLED_APPS = [
     'journaling.apps.JournalingConfig',
 ]
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+    'http://localhost:8081',
+    'exp://192.168.254.9:8081',
+    'http://192.168.254.9:8081',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,6 +60,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+ALLOWED_HOSTS = [
+    '*'
 ]
 
 ROOT_URLCONF = 'backend.urls'
