@@ -1,7 +1,7 @@
 // This file will help format the date time
 
-function dateTimeFormat(dateObject) {
-    const formattedDate = new Intl.DateTimeFormat('en-US', {
+function dateTimeFormat(dateObject, locale = 'en-US') {
+    const formattedDate = new Intl.DateTimeFormat(locale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
