@@ -50,3 +50,12 @@ class CreateJournalPageView(APIView):
             journal_page.save()
             return Response(JournalPageSerializer(journal_page).data, status=status.HTTP_201_CREATED)
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+    
+class DeleteJournalView(APIView):
+    def delete(self, request, journal_id):
+        journal = Journal.objects.get(id=journal_id)
+        try:
+            journal.delete()
+            return Response(JournalSerializer(journal).data, status=status.HTTP_204_NO_CONTENT)
+        except journal.DoesNotExist:
+            return Response({'Not Found': 'Journal not found.'}, status=status.HTTP_404_NOT_FOUND)

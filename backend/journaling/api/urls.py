@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import JournalViewSet, JournalPageViewSet, CreateJournalPageView, CreateJournalView
+from .views import JournalViewSet, JournalPageViewSet, CreateJournalPageView, CreateJournalView, DeleteJournalView
 
 
 journal_router = DefaultRouter()
@@ -11,4 +11,5 @@ urlpatterns = [
     path('', include(journal_router.urls)),
     path('create_journal_page/', CreateJournalPageView.as_view()),
     path('create_journal/', CreateJournalView.as_view()),
+    path('delete_journal/<int:journal_id>/', DeleteJournalView.as_view()),
 ]

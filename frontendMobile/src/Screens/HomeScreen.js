@@ -43,11 +43,11 @@ export default function HomeScreen({navigation}) {
             <Text style={s.buttonText}>View Journals</Text>
           </TouchableOpacity>
         </View>
+        <View style={s.horizontalLine} />
         <View testID='Habits'>
           <Text>-- Habits Go Here --</Text>
         </View>
-
-      {/* Modal Components */}
+        <View style={s.horizontalLine} />
       <JournalingChoices visible={journalChoicesVisible}
         onClose={closeJournalChoices}
         navigation={navigation}

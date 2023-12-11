@@ -6,6 +6,7 @@ export default function ProfileScreen({navigateTo}) {
     return (
       <View>
           <Text style={s.text}>This is the Profile Page!</Text>
+          <View style={s.horizontalLine} />
       </View>
     );
   }

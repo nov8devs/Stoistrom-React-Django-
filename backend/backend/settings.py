@@ -25,10 +25,6 @@ SECRET_KEY = 'django-insecure-(k+#pbq0)^4+fi1_b4z6o!c%+psu6ww%om*f=+%3q1&6ix7da+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '192.168.254.10',
-]
-
 
 # Application definition
 
@@ -47,8 +43,8 @@ INSTALLED_APPS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://localhost:8081',
-    'exp://192.168.254.9:8081',
-    'http://192.168.254.9:8081',
+    'exp://192.168.254.26:8081',
+    'http://192.168.254.26:8081',
     ]
 
 MIDDLEWARE = [
@@ -90,6 +86,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
+# We're going to add different Databases in the future!
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
