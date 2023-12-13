@@ -1,5 +1,5 @@
 // This is where the styling is located (For UI/UX designers)
-// P.S. In the future, users will customize their own app design. That's why this file is designed this way.
+// P.S. In the future, users will customize their own app design.
 
 const lightModeStyle = {}
 const darkModeStyle = {}
@@ -10,8 +10,18 @@ export const mainStyle = {
       backgroundColor: '#fff',
       alignItems: 'center',
     },
+    horizontalLine: {
+      height: 1,
+      backgroundColor: 'black',
+    },
+    column: {
+      flexDirection: 'column',
+      flexBasis: '33.33%',
+      alignItems: 'center',
+    },
     row: {
       flexDirection: 'row',
+      justifyContent: 'space-around',
     },
     button: {
       backgroundColor: 'black',
@@ -36,6 +46,9 @@ export const mainStyle = {
     bottomTab: {
       // Bottom Tab Design
     },
+    topTab: {
+      // Top Tab Design
+    },
     journalChoices: {
       container: {
         flex: 1,
@@ -46,6 +59,7 @@ export const mainStyle = {
       },
       row: {
         flexDirection: 'row',
+        justifyContent: 'space-around',
       },
       cell: {
         width: 150,
@@ -56,7 +70,7 @@ export const mainStyle = {
       journalButton: {
         backgroundColor: 'black',
         paddingVertical: 12,
-        paddingHorizontal: 24,
+        paddingHorizontal: 30,
         borderRadius: 16,
         marginVertical: 20,
       },
@@ -107,5 +121,19 @@ export const mainStyle = {
         borderRadius: 16,
         marginVertical: 10,
       }
+    },
+    journalView: {
+      container: {
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 8,
+        padding: 16,
+        marginBottom: 12,
+        backgroundColor: 'beige'
+      },
+      type: {
+        fontSize: 20,
+        textAlign: 'center',
+      },
     },
 }
