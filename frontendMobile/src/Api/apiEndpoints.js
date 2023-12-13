@@ -1,7 +1,8 @@
 // This is where all the API endpoints are handled (using a REST framework)
 // I made sure to put them all in one file to make frontend dev and backend dev communication a lot easier!
 
-DOMAIN = 'http://192.168.254.26:8000' // Put the server to your backend here!
+HOST = "<your host server here>"
+DOMAIN = `http://${HOST}:8000/` // Put the server to your backend here!
 
 const endpoints = {
     getJournal: `${DOMAIN}/api/journal`,
