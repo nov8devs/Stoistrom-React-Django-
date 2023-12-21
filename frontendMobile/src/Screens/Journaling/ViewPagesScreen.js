@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 import endpoints from '../../Api/apiEndpoints';
 import { mainStyle } from '../../Styles/Styles';
 import Warning from '../../Components/Warning';
+import JournalPageItem from '../../Components/Journaling/JournalPageItem';
 
 const s = StyleSheet.create(mainStyle);
 
@@ -23,7 +24,6 @@ const ViewPagesScreen = ({navigation, route }) => {
     const toggleWarning = () => {
         setWarningVisible(!warningVisible);
     }
-
     const deleteJournal = (id) => {
         endpoints.deleteApiResponse(endpoints.deleteJournal, id);
         navigation.navigate("View Journals");
@@ -36,11 +36,7 @@ const ViewPagesScreen = ({navigation, route }) => {
                 <Button title="Delete" onPress={toggleWarning}/>
             </View>
             {filteredPages.map((page) => (
-                <View key={page.id} style={{textAlign: 'center'}}>
-                    <Text style={s.text}>{page.prompt}</Text>
-                    <View style={s.horizontalLine} />
-                    <Text>{page.entry}</Text>
-                </View>
+                <JournalPageItem key={page.id} page={page} />
             ))}
             <Warning
                 visible={warningVisible}

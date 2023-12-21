@@ -9,10 +9,28 @@ class JournalViewSet(viewsets.ModelViewSet):
     queryset = Journal.objects.all()
     serializer_class = JournalSerializer
 
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        return super().update(request, *args, **kwargs)
+    
+    def destroy(self, request, *args, **kwargs):
+        return super().destroy(request, *args, **kwargs)
+
 
 class JournalPageViewSet(viewsets.ModelViewSet):
     queryset = JournalPage.objects.all()
     serializer_class = JournalPageSerializer
+
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
+    
+    def update(self, request, *args, **kwargs):
+        return super().update(request, *args, **kwargs)
+    
+    def destroy(self, request, *args, **kwargs):
+        return super().destroy(request, *args, **kwargs)
 
 
 #Handling POST requests from frontend.

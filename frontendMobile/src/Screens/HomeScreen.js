@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Animated, Easing, Text, View, TouchableOpacity } from 'react-native';
 import { mainStyle } from '../Styles/Styles';
-import JournalingChoices from '../Components/JournalingChoices';
+import JournalingChoices from '../Components/Journaling/JournalingChoices';
 import Habits from '../Components/Habits';
 import dateTimeFormat from '../Utils/DateTimeFormat';
 

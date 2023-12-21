@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { mainStyle } from '../../Styles/Styles';
 import RandomPromptGenerator from '../../Utils/Prompts';
-import JournalPage from '../../Components/JournalPage';
+import JournalPage from '../../Components/Journaling/JournalPage';
 
 const s = StyleSheet.create(mainStyle);
 
