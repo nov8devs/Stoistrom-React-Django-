@@ -1,7 +1,8 @@
 // This is where all the API endpoints are handled (using a REST framework)
 // I made sure to put them all in one file to make frontend dev and backend dev communication a lot easier!
 
-DOMAIN = 'http://192.168.254.26:8000' // Put the server to your backend here!
+HOST = "<YOUR_ADDRESS_HERE>"  // Put the IP here!
+DOMAIN = `http://${HOST}:8000/`
 
 const endpoints = {
     getJournal: `${DOMAIN}/api/journal`,
@@ -9,6 +10,8 @@ const endpoints = {
     deleteJournal: `${DOMAIN}/api/delete_journal`,
     journal: `${DOMAIN}/api/create_journal/`,
     journalPage: `${DOMAIN}/api/create_journal_page/`,
+
+    getHabit: `${DOMAIN}/api/habit/`,
 
     postApiResponse(endpoint, data, handleOk = () => {}, handleError = () => {}) {
         console.log("Sender's Data: ", data)

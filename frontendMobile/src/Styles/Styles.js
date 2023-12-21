@@ -1,14 +1,112 @@
 // This is where the styling is located (For UI/UX designers)
 // P.S. In the future, users will customize their own app design.
 
-const lightModeStyle = {}
-const darkModeStyle = {}
+const lightModeComponents = {
+  mainColor: 'white',
+  contentColor: 'black',
+  borderColor: 'grey',
+  textColor: 'black'
+}
+
+const darkModeComponents = {
+  mainColor: 'black',
+  contentColor: 'grey',
+  borderColor: 'white',
+  textColor: 'white'
+}
+
+const createStyle = (mode) => {
+  return {
+    container: {
+      flex: 1,
+      backgroundColor: mode.mainColor,
+      alignItems: 'center',
+    },
+    text: {
+      fontSize: 45,
+      textAlign: 'center',
+      textColor: mode.textColor
+    },
+    horizontalLine: {
+      height: 1,
+      backgroundColor: mode.textColor,
+    },
+    column: {
+      flexDirection: 'column',
+      flexBasis: '33.33%',
+      alignItems: 'center',
+    },
+    row: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+    },
+    button: {
+      backgroundColor: mode.mainColor,
+      paddingVertical: 15,
+      paddingHorizontal: 20,
+      borderRadius: 16,
+      marginVertical: 10,
+    },
+    buttonText: {
+    },
+    backButton: {
+    },
+    bottomTab: {
+    },
+    topTab: {
+    },
+    journalChoices: {
+      container: {
+      },
+      row: {
+      },
+      cell: {
+      },
+      journalButton: {
+      },
+      closeButton: {
+      },
+    },
+    journal: {
+      container: {
+      },
+      emptyPrompt: {
+      },
+      promptText: {
+      },
+      entry: {
+      },
+      submitButton: {
+      }
+    },
+    journalView: {
+      container: {
+      },
+      type: {
+      },
+    },
+    myHabits: {
+      tab: {
+      },
+      text: {
+      },
+      addButton: {
+      },
+      buttonText: {
+      }
+    }  
+  }
+};
 
 export const mainStyle = {
     container: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
+    },
+    text: {
+      fontSize: 45,
+      textAlign: 'center',
     },
     horizontalLine: {
       height: 1,
@@ -84,10 +182,6 @@ export const mainStyle = {
         alignSelf: 'center',
       },
     },
-    text: {
-      fontSize: 45,
-      textAlign: 'center',
-    },
     journal: {
       container: {
         flex: 1,
@@ -136,4 +230,31 @@ export const mainStyle = {
         textAlign: 'center',
       },
     },
-}
+    myHabits: {
+      tab: {
+        flex: 0.4,
+        flexDirection: 'row',
+        height: 10,
+      },
+      text: {
+        textAlign: 'left',
+        fontSize: 50,
+      },
+      addButton: {
+        backgroundColor: 'black',
+        borderColor: '#ccc',
+        borderWidth: '1px',
+        width: 50, 
+        height: 50, 
+        borderRadius: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'right',
+      },
+      buttonText: {
+        color: 'white',
+        fontSize: 45,
+        textAlign: 'center',
+      }
+    }
+};

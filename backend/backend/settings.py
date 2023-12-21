@@ -11,9 +11,18 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Config File for the entire app
+config_file = BASE_DIR.parent / "config.json"
+
+with config_file.open() as json_file:
+    config_data = json.load(json_file)
+    HOST_ADDRESS = config_data.get('HOST_ADDRESS', 'localhost')
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,13 +47,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'journaling.apps.JournalingConfig',
+    'habits.apps.HabitsConfig',
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://localhost:8081',
-    'exp://192.168.254.26:8081',
-    'http://192.168.254.26:8081',
+    f'exp://{HOST_ADDRESS}:8081',
+    f'http://{HOST_ADDRESS}:8081',
     ]
 
 MIDDLEWARE = [

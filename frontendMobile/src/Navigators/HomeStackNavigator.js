@@ -3,6 +3,7 @@ import JournalingScreen from '../Screens/Journaling/JournalingScreen';
 import ViewJournalsScreen from '../Screens/Journaling/ViewJournalsScreen';
 import ViewPagesScreen from '../Screens/Journaling/ViewPagesScreen';
 import SaveJournalingScreen from '../Screens/Journaling/SaveJournalScreen';
+import CreateHabit from '../Screens/Habits/CreateHabit';
 import { createStackNavigator } from '@react-navigation/stack'
 
 const Nav = createStackNavigator();
@@ -19,6 +20,7 @@ const HomeStackNavigator = ({navigation}) => {
             <Nav.Screen name="Save Journal" component={SaveJournalingScreen} />
             <Nav.Screen name="View Journals" component={ViewJournalsScreen} />
             <Nav.Screen name="My Journal" component={ViewPagesScreen} />
+            <Nav.Screen name="Create Habit" component={CreateHabit} />
         </Nav.Navigator> 
     )
 }
