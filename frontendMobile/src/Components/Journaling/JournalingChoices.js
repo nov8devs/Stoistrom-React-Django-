@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Modal, TouchableOpacity } from 'react-native';
-import { mainStyle } from '../Styles/Styles';
+import { mainStyle } from '../../Styles/Styles';
 
 const s = StyleSheet.create(mainStyle)
 

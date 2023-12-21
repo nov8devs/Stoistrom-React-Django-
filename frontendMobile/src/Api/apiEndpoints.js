@@ -2,7 +2,7 @@
 // I made sure to put them all in one file to make frontend dev and backend dev communication a lot easier!
 
 HOST = "<YOUR_ADDRESS_HERE>"  // Put the IP here!
-DOMAIN = `http://${HOST}:8000/`
+DOMAIN = `http://${HOST}:8000`
 
 const endpoints = {
     getJournal: `${DOMAIN}/api/journal`,
